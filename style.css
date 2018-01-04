@@ -1,0 +1,231 @@
+/* style.css */
+
+body {
+	background-color: #eee;
+	padding: 0.5em;
+	line-height: 1.5em;
+	font-family: 宋体, SimSun, 华文细黑, STXihei, Helvetica, Arial, Tahoma, sans-serif;
+}
+
+/* text styling */
+h1, h2, h3, h4, h5, h6 {
+	font-family: "Microsoft YaHei New", "Microsoft Yahei", 微软雅黑, 宋体, SimSun, STXihei, 华文细黑, Helvetica, Arial, Tahoma, sans-serif;
+}
+h1 {
+	font-size: 2.5em;
+	margin: 0.5em 0;
+}
+
+h2 {
+	font-size: 2em;
+    margin: 0.75em 0;
+}
+
+.cursivescript {
+	font-family: Georgia, "Times New Roman", "KaiTi", "楷体", STKaiti, "华文楷体", serif;
+	line-height: 1.2em;
+	text-align:left;
+	}
+
+h3 {
+	font-size: 1.5em;
+	margin: 1em 0;
+}
+
+nav h3 {
+	margin: 0;
+	padding: 0;
+}
+
+h4 {
+	font-size: 1.2em;
+	font-weight: bold;
+	margin: 1.5em 0;
+}
+
+h5 {
+	font-size: 1em;
+	font-weight: bold;
+	margin-bottom: 1em;
+	text-indent: 2em;
+}
+
+main p {
+	margin-bottom: 1em;
+	text-align: justify;
+}
+
+strong { 
+    font-weight: bold;
+}
+
+/* link styling */
+a {
+	text-decoration: none;
+	color: #03f;
+}
+
+a:visited {
+	color: #60c;
+}
+
+a:hover {
+	color: #09f;
+}
+
+a:active {
+	color: #f33;
+}
+
+h1 a:link, h1 a:visited {
+	color: #000;
+}
+
+/* list styling */
+ul {
+	text-indent: 1.5em;
+}
+
+ol {
+	display:block;
+	list-style-type: decimal;
+	list-style-position: inside;
+	padding-left: 2em;
+}
+
+/* img styling */
+img {
+	display: block;
+	margin: auto;
+	padding: 0.5em;
+	max-width: 100%;
+	height: auto;
+}
+
+/* css accordion */
+
+input {
+	display: none;
+}
+
+label {
+	position: relative;
+	cursor: pointer;
+}
+
+.ch, .toc{
+	position: relative;
+	overflow: hidden;
+}
+
+.ch-content, .toc-content {
+	max-height: 0;
+	overflow: hidden;
+}
+
+input:checked ~ label :not(h3) {
+	text-decoration: underline;
+}
+
+input:checked ~ .ch-content, input:checked ~ .toc-content {
+	max-height: inherit;
+}
+
+
+label::before {
+	float: left;
+	margin-right: 0.5em;
+	display: block;
+	text-align: center;
+	width: 1em;
+}
+
+input[type=checkbox] + label::before {
+	content: "\27A4";
+	-webkit-transition: all .15s;
+	-o-transition: all .15s;
+	transition: all .15s;	
+}
+
+input[type=checkbox]:checked + label::before {
+	content: "\27A4";
+	transform: rotate(90deg);	
+	-ms-transform: rotate(90deg);
+	-webkit-transform: rotate(90deg);
+	transition: all .15s;	
+	-o-transition: all .15s;
+	-webkit-transition: all .15s;
+}
+
+
+/* layout, all media */
+header {
+	text-align: center;
+}
+
+nav {
+	background-color: #d3d3d3;
+	margin-bottom: 1em;
+	padding: 1em;
+}
+
+main {
+	margin-bottom: 0.5em;
+	padding: 0 0.5em;
+}
+
+footer {
+	padding: 1em;
+	clear: both;
+	text-align: center;
+}
+
+/* for screens wider than 700px and not IE/Edge */
+@media screen and (min-width:700px) {
+	
+@supports (position: sticky) or (position: -webkit-sticky) {
+
+nav {
+	width:  auto;
+	float: left;
+	margin-right: 0.5em;
+	/* for scrolling */
+		position: -webkit-sticky;
+		position: sticky;
+		top: 0.5em;
+		overflow-y: auto;
+		height: 92vh;
+}
+
+main {
+	overflow: hidden;
+	width: auto;
+	padding: 0 1em;
+}
+
+.toc {
+	position: relative;
+	overflow: hidden;
+}
+
+.toc h3 {
+	width: 1em;
+	word-wrap: break-word;
+}
+
+input:checked + label h3 {
+	width: auto;
+	word-wrap: normal;
+}
+
+.toc-content {
+	overflow: hidden;
+	display: none;
+}
+
+input:checked ~ .toc-content {
+	max-width: 18em;
+	display: block;
+}
+}
+}
